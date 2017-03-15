@@ -289,7 +289,7 @@ class Proposal(GovernanceClass, BaseModel):
                 return False
 
             # payment address is valid base58 dash addr, non-multisig
-            if not dashlib.is_valid_dash_address(self.payment_address, config.network):
+            if not dashlib.is_valid_address(self.payment_address, config.network):
                 printdbg("\tPayment address [%s] not a valid Dash address for network [%s], returning False" % (self.payment_address, config.network))
                 return False
 
@@ -408,7 +408,7 @@ class Superblock(BaseModel, GovernanceClass):
         # it's a string from the DB...
         addresses = self.payment_addresses.split('|')
         for addr in addresses:
-            if not dashlib.is_valid_dash_address(addr, config.network):
+            if not dashlib.is_valid_address(addr, config.network):
                 printdbg("\tInvalid address [%s], returning False" % addr)
                 return False
 
