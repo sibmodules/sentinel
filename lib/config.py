@@ -23,6 +23,17 @@ def get_dash_conf():
 
     return dash_conf
 
+def get_sibcoin_conf():
+    home = os.environ.get('HOME')
+
+    sibcoin_conf = os.path.join(home, ".sibcoin/sibcoin.conf")
+    if sys.platform == 'darwin':
+        sibcoin_conf = os.path.join(home, "Library/Application Support/Sibcoin/sibcoin.conf")
+
+    sibcoin_conf = sentinel_cfg.get('sibcoin_conf', sibcoin_conf)
+
+    return sibcoin_conf
+
 
 def get_network():
     return sentinel_cfg.get('network', 'mainnet')
@@ -77,6 +88,7 @@ def get_db_conn():
     return db
 
 
-dash_conf = get_dash_conf()
+#dash_conf = get_dash_conf()
+dash_conf = get_sibcoin_conf()
 network = get_network()
 db = get_db_conn()
