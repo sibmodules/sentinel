@@ -9,10 +9,12 @@ import config
 from models import Superblock, Proposal, GovernanceObject, Setting, Signal, Vote, Outcome, Watchdog
 from models import VoteSignals, VoteOutcomes
 from peewee import PeeweeException  # , OperationalError, IntegrityError
-from dashd import DashDaemon
+#from dashd import DashDaemon
+from sibcoind import SibcoinDaemon
 import dashlib
 from decimal import Decimal
-dashd = DashDaemon.from_dash_conf(config.dash_conf)
+#dashd = DashDaemon.from_dash_conf(config.dash_conf)
+dashd = SibcoinDaemon.from_sibcoin_conf(config.dash_conf)
 import misc
 # ==============================================================================
 # do stuff here

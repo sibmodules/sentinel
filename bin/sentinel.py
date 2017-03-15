@@ -5,7 +5,8 @@ sys.path.append(os.path.normpath(os.path.join(os.path.dirname(__file__), '../lib
 import init
 import config
 import misc
-from dashd import DashDaemon
+#from dashd import DashDaemon
+from sibcoind import SibcoinDaemon
 from models import Superblock, Proposal, GovernanceObject, Watchdog
 from models import VoteSignals, VoteOutcomes, Transient
 import socket
@@ -142,7 +143,8 @@ def is_dashd_port_open(dashd):
 
 
 def main():
-    dashd = DashDaemon.from_dash_conf(config.dash_conf)
+    #dashd = DashDaemon.from_dash_conf(config.dash_conf)
+    dashd = SibcoinDaemon.from_sibcoin_conf(config.dash_conf)
     options = process_args()
 
     # check dashd connectivity
