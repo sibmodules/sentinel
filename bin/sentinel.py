@@ -149,12 +149,12 @@ def main():
 
     # check dashd connectivity
     if not is_dashd_port_open(dashd):
-        print("Cannot connect to dashd. Please ensure dashd is running and the JSONRPC port is open to Sentinel.")
+        print("Cannot connect to sibcoind. Please ensure sibcoind is running and the JSONRPC port is open to Sentinel.")
         return
 
     # check dashd sync
     if not dashd.is_synced():
-        print("dashd not synced with network! Awaiting full sync before running Sentinel.")
+        print("sibcoind not synced with network! Awaiting full sync before running Sentinel.")
         return
 
     # ensure valid masternode
