@@ -1,14 +1,14 @@
-# Dash Sentinel
+# Sibcoin Sentinel
 
-An all-powerful toolset for Dash.
+An all-powerful toolset for Sibcoin.
 
 [![Build Status](https://travis-ci.org/dashpay/sentinel.svg?branch=master)](https://travis-ci.org/dashpay/sentinel)
 
-Sentinel is an autonomous agent for persisting, processing and automating Dash V12.1 governance objects and tasks, and for expanded functions in the upcoming Dash V13 release (Evolution).
+Sentinel is an autonomous agent for persisting, processing and automating Sibcoin V16.1 governance objects and tasks, and for expanded functions in the upcoming Sibcoin V17 release (Evolution).
 
-Sentinel is implemented as a Python application that binds to a local version 12.1 dashd instance on each Dash V12.1 Masternode.
+Sentinel is implemented as a Python application that binds to a local version 16.1 sibcoind instance on each Sibcoin V16.1 Masternode.
 
-This guide covers installing Sentinel onto an existing 12.1 Masternode in Ubuntu 14.04 / 16.04.
+This guide covers installing Sentinel onto an existing 16.1 Masternode in Ubuntu 14.04 / 16.04.
 
 ## Installation
 
@@ -31,7 +31,7 @@ Make sure the local Dash daemon running is at least version 12.1 (120100)
 
 Clone the Sentinel repo and install Python dependencies.
 
-    $ git clone https://github.com/dashpay/sentinel.git && cd sentinel
+    $ git clone https://github.com/ivansib/sentinel.git && cd sentinel
     $ virtualenv ./venv
     $ ./venv/bin/pip install -r requirements.txt
 
@@ -55,9 +55,9 @@ With all tests passing and crontab setup, Sentinel will stay in sync with dashd 
 
 ## Configuration
 
-An alternative (non-default) path to the `dash.conf` file can be specified in `sentinel.conf`:
+An alternative (non-default) path to the `sibcoin.conf` file can be specified in `sentinel.conf`:
 
-    dash_conf=/path/to/dash.conf
+    sibcoin_conf=/path/to/sibcoin.conf
 
 ## Troubleshooting
 
@@ -67,11 +67,11 @@ To view debug output, set the `SENTINEL_DEBUG` environment variable to anything 
 
 ## Contributing
 
-Please follow the [DashCore guidelines for contributing](https://github.com/dashpay/dash/blob/v0.12.1.x/CONTRIBUTING.md).
+Please follow the [Sibcoin Core guidelines for contributing](https://github.com/ivansib/sibcoin/blob/v0.16.1.x/CONTRIBUTING.md).
 
 Specifically:
 
-* [Contributor Workflow](https://github.com/dashpay/dash/blob/v0.12.1.x/CONTRIBUTING.md#contributor-workflow)
+* [Contributor Workflow](https://github.com/ivansib/sibcoin/blob/v0.16.1.x/CONTRIBUTING.md#contributor-workflow)
 
     To contribute a patch, the workflow is as follows:
 
@@ -85,4 +85,4 @@ Specifically:
 
 ### License
 
-Released under the MIT license, under the same terms as DashCore itself. See [LICENSE](LICENSE) for more info.
+Released under the MIT license, under the same terms as Sibcoin Core itself. See [LICENSE](LICENSE) for more info.
