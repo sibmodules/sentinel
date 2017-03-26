@@ -14,7 +14,7 @@ from sibcoind import SibcoinDaemon
 import dashlib
 from decimal import Decimal
 #dashd = DashDaemon.from_dash_conf(config.dash_conf)
-dashd = SibcoinDaemon.from_sibcoin_conf(config.dash_conf)
+sibcoind = SibcoinDaemon.from_sibcoin_conf(config.sibcoin_conf)
 import misc
 # ==============================================================================
 # do stuff here
@@ -41,7 +41,7 @@ pr = Proposal(
 # also, create the `within_window` or similar method & use that.
 #
 bh = 131112
-bh_epoch = dashd.block_height_to_epoch(bh)
+bh_epoch = sibcoind.block_height_to_epoch(bh)
 
 fudge = 72000
 window_start = 1483689082 - fudge

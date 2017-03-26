@@ -3,6 +3,7 @@ from datetime import datetime
 import re
 import sys
 import os
+import config
 
 
 def is_numeric(strin):
@@ -22,7 +23,7 @@ def is_numeric(strin):
 def printdbg(str):
     ts = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(now()))
     logstr = "{} {}".format(ts, str)
-    if os.environ.get('SENTINEL_DEBUG', None):
+    if config.debug_enabled:
         print(logstr)
 
     sys.stdout.flush()

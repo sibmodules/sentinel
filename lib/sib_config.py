@@ -31,3 +31,16 @@ class SibcoinConfig(DashConfig):
         # return a dictionary with RPC credential key, value pairs
         return creds
 
+    @classmethod
+    def tokenize(self, filename, throw_exception=False):
+        tokens = {}
+        try:
+            data = self.slurp_config_file(filename)
+            match = re.findall(r'(.*?)=(.*?)$', data, re.MULTILINE)
+            tokens = {key: value for (key, value) in match}
+        except IOError as e:
+            printdbg("[warning] error reading config file: %s" % e)
+            if throw_exception:
+                raise e
+
+        return tokens
