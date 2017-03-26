@@ -8,30 +8,30 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'lib'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 import config
 
-from dashd import DashDaemon
-from dash_config import DashConfig
+from sibcoind import SibcoinDaemon
+from sib_config import SibcoinConfig
 
 
 def test_dashd():
-    config_text = DashConfig.slurp_config_file(config.dash_conf)
+    config_text = SibcoinConfig.slurp_config_file(config.sibcoin_conf)
     network = 'mainnet'
     is_testnet = False
-    genesis_hash = u'00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6'
+    genesis_hash = u'00000c492bf73490420868bc577680bfc4c60116e7e85343bc624787c21efa4c'
     for line in config_text.split("\n"):
         if line.startswith('testnet=1'):
             network = 'testnet'
             is_testnet = True
-            genesis_hash = u'00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c'
+            genesis_hash = u'00000617791d0e19f524387f67e558b2a928b670b9a3b387ae003ad7f9093017'
 
-    creds = DashConfig.get_rpc_creds(config_text, network)
-    dashd = DashDaemon(**creds)
-    assert dashd.rpc_command is not None
+    creds = SibcoinConfig.get_rpc_creds(config_text, network)
+    sibcoind = SibcoinDaemon(**creds)
+    assert sibcoind.rpc_command is not None
 
-    assert hasattr(dashd, 'rpc_connection')
+    assert hasattr(sibcoind, 'rpc_connection')
 
-    # Dash testnet block 0 hash == 00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c
+    # Dash testnet block 0 hash == 00000617791d0e19f524387f67e558b2a928b670b9a3b387ae003ad7f9093017
     # test commands without arguments
-    info = dashd.rpc_command('getinfo')
+    info = sibcoind.rpc_command('getinfo')
     info_keys = [
         'blocks',
         'connections',
@@ -48,4 +48,4 @@ def test_dashd():
     assert info['testnet'] is is_testnet
 
     # test commands with args
-    assert dashd.rpc_command('getblockhash', 0) == genesis_hash
+    assert sibcoind.rpc_command('getblockhash', 0) == genesis_hash

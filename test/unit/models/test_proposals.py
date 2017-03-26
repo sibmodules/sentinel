@@ -26,33 +26,33 @@ def teardown():
 @pytest.fixture
 def go_list_proposals():
     items = [
-        {u'AbsoluteYesCount': 1000,
-         u'AbstainCount': 7,
-         u'CollateralHash': u'acb67ec3f3566c9b94a26b70b36c1f74a010a37c0950c22d683cc50da324fdca',
-         u'DataHex': u'5b5b2270726f706f73616c222c207b22656e645f65706f6368223a20313439313336383430302c20226e616d65223a20226465616e2d6d696c6c65722d35343933222c20227061796d656e745f61646472657373223a2022795965384b77796155753559737753596d4233713372797838585455753979375569222c20227061796d656e745f616d6f756e74223a2032352e37352c202273746172745f65706f6368223a20313437343236313038362c202274797065223a20312c202275726c223a2022687474703a2f2f6461736863656e7472616c2e6f72672f6465616e2d6d696c6c65722d35343933227d5d5d',
-         u'DataString': u'[["proposal", {"end_epoch": 1491368400, "name": "dean-miller-5493", "payment_address": "yYe8KwyaUu5YswSYmB3q3ryx8XTUu9y7Ui", "payment_amount": 25.75, "start_epoch": 1474261086, "type": 1, "url": "http://dashcentral.org/dean-miller-5493"}]]',
-         u'Hash': u'dfd7d63979c0b62456b63d5fc5306dbec451180adee85876cbf5b28c69d1a86c',
+        {u'AbsoluteYesCount': 11,
+         u'AbstainCount': 0,
+         u'CollateralHash': u'996eae8ba8dbe5152ccb302ba513cf59b79fa95a7899fe34519804e4a4e6c94e',
+         u'DataHex': u'5b5b2270726f706f73616c222c7b22656e645f65706f6368223a2231343937393039363231222c226e616d65223a2274657374222c227061796d656e745f61646472657373223a22736352613467356154697a6f724c31484a7179326431796f4d6f6e456f677239675a222c227061796d656e745f616d6f756e74223a223235222c2273746172745f65706f6368223a2231343930313833313830222c2274797065223a312c2275726c223a2268747470733a2f2f736962636f696e2e6f7267227d5d5d',
+         u'DataString': u'[["proposal",{"end_epoch":"1497909621","name":"test","payment_address":"scRa4g5aTizorL1HJqy2d1yoMonEogr9gZ","payment_amount":"25","start_epoch":"1490183180","type":1,"url":"https://sibcoin.org"}]]',
+         u'Hash': u'7e38a64c2e5275b978e0075be2d87765b91f1bab75285de6818c00fb009465be',
          u'IsValidReason': u'',
-         u'NoCount': 25,
-         u'YesCount': 1025,
+         u'NoCount': 0,
+         u'YesCount': 11,
          u'fBlockchainValidity': True,
          u'fCachedDelete': False,
          u'fCachedEndorsed': False,
-         u'fCachedFunding': False,
+         u'fCachedFunding': True,
          u'fCachedValid': True},
-        {u'AbsoluteYesCount': 1000,
-         u'AbstainCount': 29,
-         u'CollateralHash': u'3efd23283aa98c2c33f80e4d9ed6f277d195b72547b6491f43280380f6aac810',
-         u'DataHex': u'5b5b2270726f706f73616c222c207b22656e645f65706f6368223a20313439313336383430302c20226e616d65223a20226665726e616e64657a2d37363235222c20227061796d656e745f61646472657373223a2022795965384b77796155753559737753596d4233713372797838585455753979375569222c20227061796d656e745f616d6f756e74223a2032352e37352c202273746172745f65706f6368223a20313437343236313038362c202274797065223a20312c202275726c223a2022687474703a2f2f6461736863656e7472616c2e6f72672f6665726e616e64657a2d37363235227d5d5d',
-         u'DataString': u'[["proposal", {"end_epoch": 1491368400, "name": "fernandez-7625", "payment_address": "yYe8KwyaUu5YswSYmB3q3ryx8XTUu9y7Ui", "payment_amount": 25.75, "start_epoch": 1474261086, "type": 1, "url": "http://dashcentral.org/fernandez-7625"}]]',
-         u'Hash': u'0523445762025b2e01a2cd34f1d10f4816cf26ee1796167e5b029901e5873630',
+        {u'AbsoluteYesCount': 11,
+         u'AbstainCount': 0,
+         u'CollateralHash': u'0542fe1a708ebc5857a1a86c9c394792e89302df070f604c5a90e2d6dcddf6b2',
+         u'DataHex': u'5b5b2270726f706f73616c222c7b22656e645f65706f6368223a2231343930333830313437222c226e616d65223a223f3f3f3f2032222c227061796d656e745f61646472657373223a22734e74335a7a686963513277713847545334577644475745513466554e766132636f222c227061796d656e745f616d6f756e74223a2235222c2273746172745f65706f6368223a2231343930333131303237222c2274797065223a312c2275726c223a2268747470733a2f2f736962636f696e2e6f72672f7465737432227d5d5d',
+         u'DataString': u'[["proposal",{"end_epoch":"1490380147","name":"???? 2","payment_address":"sNt3ZzhicQ2wq8GTS4WvDGWEQ4fUNva2co","payment_amount":"5","start_epoch":"1490311027","type":1,"url":"https://sibcoin.org/test2"}]]',
+         u'Hash': u'62319ca4478962bfd6601095b29bae00cab0ad4d037f6eee55d1ccfae7d637eb',
          u'IsValidReason': u'',
-         u'NoCount': 56,
-         u'YesCount': 1056,
+         u'NoCount': 0,
+         u'YesCount': 11,
          u'fBlockchainValidity': True,
          u'fCachedDelete': False,
          u'fCachedEndorsed': False,
-         u'fCachedFunding': False,
+         u'fCachedFunding': True,
          u'fCachedValid': True},
     ]
 
@@ -67,8 +67,8 @@ def proposal():
         start_epoch=1483250400,  # 2017-01-01
         end_epoch=1491022800,  # 2017-04-01
         name="wine-n-cheeze-party",
-        url="https://dashcentral.com/wine-n-cheeze-party",
-        payment_address="yYe8KwyaUu5YswSYmB3q3ryx8XTUu9y7Ui",
+        url="https://sibcoin.net/wine-n-cheeze-party",
+        payment_address="sYNpoRsQDBN8qYFxeifN2XHazF58e14BbQ",
         payment_amount=13
     )
 
@@ -78,9 +78,9 @@ def proposal():
 
 
 def test_proposal_is_valid(proposal):
-    from dashd import DashDaemon
+    from sibcoind import SibcoinDaemon
     import dashlib
-    dashd = DashDaemon.from_dash_conf(config.dash_conf)
+    dashd = SibcoinDaemon.from_sibcoin_conf(config.sibcoin_conf)
 
     orig = Proposal(**proposal.get_dict())  # make a copy
 
@@ -143,7 +143,7 @@ def test_proposal_is_valid(proposal):
     proposal.payment_address = 'YYE8KWYAUU5YSWSYMB3Q3RYX8XTUU9Y7UI'
     assert proposal.is_valid() is False
 
-    proposal.payment_address = 'yYe8KwyaUu5YswSYmB3q3ryx8XTUu9y7Uj'
+    proposal.payment_address = 'seVNpH5rkau8dKhumiLF1BYspp2vf7Lkyc'
     assert proposal.is_valid() is False
 
     proposal.payment_address = '221 B Baker St., London, United Kingdom'
@@ -153,7 +153,7 @@ def test_proposal_is_valid(proposal):
     proposal.payment_address = '7gnwGHt17heGpG9Crfeh4KGpYNFugPhJdh'
     assert proposal.is_valid() is False
 
-    proposal.payment_address = 'yYe8KwyaUu5YswSYmB3q3ryx8XTUu9y7Ui'
+    proposal.payment_address = 'seVNpH5rkau8dKhumiLF1BYspp2vf7Lkyb'
     assert proposal.is_valid() is True
 
     # reset
@@ -221,13 +221,13 @@ def test_proposal_is_deletable(proposal):
 
 # deterministic ordering
 def test_approved_and_ranked(go_list_proposals):
-    from dashd import DashDaemon
-    dashd = DashDaemon.from_dash_conf(config.dash_conf)
+    from sibcoind import SibcoinDaemon
+    sibcoind = SibcoinDaemon.from_sibcoin_conf(config.sibcoin_conf)
 
     for item in go_list_proposals:
-        (go, subobj) = GovernanceObject.import_gobject_from_dashd(dashd, item)
+        (go, subobj) = GovernanceObject.import_gobject_from_dashd(sibcoind, item)
 
     prop_list = Proposal.approved_and_ranked(proposal_quorum=1, next_superblock_max_budget=60)
 
-    assert prop_list[0].object_hash == u'dfd7d63979c0b62456b63d5fc5306dbec451180adee85876cbf5b28c69d1a86c'
-    assert prop_list[1].object_hash == u'0523445762025b2e01a2cd34f1d10f4816cf26ee1796167e5b029901e5873630'
+    assert prop_list[0].object_hash == u'7e38a64c2e5275b978e0075be2d87765b91f1bab75285de6818c00fb009465be'
+    #assert prop_list[1].object_hash == u'62319ca4478962bfd6601095b29bae00cab0ad4d037f6eee55d1ccfae7d637eb'
