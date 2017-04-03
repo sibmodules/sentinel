@@ -157,6 +157,7 @@ def main():
         from sib_config import SibcoinConfig
         config.sentinel_config_file = options.config
         config.sentinel_cfg = SibcoinConfig.tokenize(options.config, True)
+        config.sibcoin_conf = config.get_sibcoin_conf()
 
     #dashd = DashDaemon.from_dash_conf(config.dash_conf)
     dashd = SibcoinDaemon.from_sibcoin_conf(config.sibcoin_conf)
