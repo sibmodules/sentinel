@@ -94,6 +94,8 @@ def process_args():
 
     return args
 
+initmodule = sys.modules[__name__]
+initmodule.options = False
 
 # === begin main
 
@@ -106,12 +108,14 @@ def main():
         config.sentinel_config_file = options.config
 
     # register a handler if SENTINEL_DEBUG is set
-    if os.environ.get('SENTINEL_DEBUG', None) or options.config:
+    if os.environ.get('SENTINEL_DEBUG', None) or options.debug:
         config.debug_enabled = True
         import logging
         logger = logging.getLogger('peewee')
         logger.setLevel(logging.DEBUG)
         logger.addHandler(logging.StreamHandler())
+
+    initmodule.options = options
 
     from sib_config import SibcoinConfig
     config.sentinel_cfg = SibcoinConfig.tokenize(config.sentinel_config_file)

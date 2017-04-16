@@ -162,7 +162,7 @@ def main():
         return
 
 
-    if options.bypass:
+    if init.options.bypass:
         # bypassing scheduler, remove the scheduled event
         printdbg("--bypass-schedule option used, clearing schedule")
         Scheduler.clear_schedule()
@@ -171,7 +171,7 @@ def main():
         printdbg("Not yet time for an object sync/vote, moving on.")
         return
 
-    if not options.bypass:
+    if not init.options.bypass:
         # delay to account for cron minute sync
         Scheduler.delay()
 
