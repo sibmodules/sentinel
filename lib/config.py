@@ -3,14 +3,13 @@
 """
 import sys
 import os
-from sib_config import SibcoinConfig
 
 default_sentinel_config = os.path.normpath(
     os.path.join(os.path.dirname(__file__), '../sentinel.conf')
 )
+
 sentinel_config_file = os.environ.get('SENTINEL_CONFIG', default_sentinel_config)
-sentinel_cfg = SibcoinConfig.tokenize(sentinel_config_file)
-debug_enabled = os.environ.get('SENTINEL_DEBUG', None)
+debug_enabled = os.environ.get('SENTINEL_DEBUG', False)
 
 
 def get_dash_conf():
@@ -90,6 +89,6 @@ def get_db_conn():
 
 
 #dash_conf = get_dash_conf()
-sibcoin_conf = get_sibcoin_conf()
-network = get_network()
-db = get_db_conn()
+#sibcoin_conf = get_sibcoin_conf()
+#network = get_network()
+#db = get_db_conn()

@@ -2,7 +2,8 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'lib'))
-
+import argparse
+import config
 
 def is_valid_python_version():
     version_valid = False
@@ -75,11 +76,50 @@ def has_sibcoin_conf():
 
     return valid_sibcoin_conf
 
+def process_args():
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-b', '--bypass-scheduler',
+                        action='store_true',
+                        help='Bypass scheduler and sync/vote immediately',
+                        dest='bypass')
+    parser.add_argument('-c', '--config',
+                        help='Path to sentinel.conf (default: ../sentinel.conf)',
+                        dest='config')
+    parser.add_argument('-d', '--debug',
+                        action='store_true',
+                        help='Enable debug mode',
+                        dest='debug')
+    args, unknown = parser.parse_known_args()
+
+    return args
+
 
 # === begin main
 
 
 def main():
+
+    options = process_args()
+
+    if options.config:
+        config.sentinel_config_file = options.config
+
+    # register a handler if SENTINEL_DEBUG is set
+    if os.environ.get('SENTINEL_DEBUG', None) or options.config:
+        config.debug_enabled = True
+        import logging
+        logger = logging.getLogger('peewee')
+        logger.setLevel(logging.DEBUG)
+        logger.addHandler(logging.StreamHandler())
+
+    from sib_config import SibcoinConfig
+    config.sentinel_cfg = SibcoinConfig.tokenize(config.sentinel_config_file)
+
+    config.sibcoin_conf = config.get_sibcoin_conf()
+    config.network = config.get_network()
+    config.db = config.get_db_conn()
+
     install_instructions = "\tpip install -r requirements.txt"
 
     if not is_valid_python_version():

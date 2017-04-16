@@ -17,7 +17,6 @@ import signal
 import atexit
 import random
 from scheduler import Scheduler
-import argparse
 
 
 # sync dashd gobject list with our local relational DB backend
@@ -143,21 +142,6 @@ def is_dashd_port_open(dashd):
 
 
 def main():
-    options = process_args()
-
-    # register a handler if SENTINEL_DEBUG is set
-    if os.environ.get('SENTINEL_DEBUG', None) or options.debug:
-        config.debug_enabled = True
-        import logging
-        logger = logging.getLogger('peewee')
-        logger.setLevel(logging.DEBUG)
-        logger.addHandler(logging.StreamHandler())
-
-    if options.config:
-        from sib_config import SibcoinConfig
-        config.sentinel_config_file = options.config
-        config.sentinel_cfg = SibcoinConfig.tokenize(options.config, True)
-        config.sibcoin_conf = config.get_sibcoin_conf()
 
     #dashd = DashDaemon.from_dash_conf(config.dash_conf)
     dashd = SibcoinDaemon.from_sibcoin_conf(config.sibcoin_conf)
@@ -222,24 +206,6 @@ def signal_handler(signum, frame):
 
 def cleanup():
     Transient.delete(mutex_key)
-
-
-def process_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-b', '--bypass-scheduler',
-                        action='store_true',
-                        help='Bypass scheduler and sync/vote immediately',
-                        dest='bypass')
-    parser.add_argument('-c', '--config',
-                        help='Path to sentinel.conf (default: ../sentinel.conf)',
-                        dest='config')
-    parser.add_argument('-d', '--debug',
-                        action='store_true',
-                        help='Enable debug mode',
-                        dest='debug')
-    args = parser.parse_args()
-
-    return args
 
 
 if __name__ == '__main__':
